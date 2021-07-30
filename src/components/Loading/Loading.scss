@@ -1,0 +1,46 @@
+$timer : -0.125;
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div{
+    text-align: center;
+    p{
+      display: inline-block;
+      text: {
+        align: center;
+        transform: uppercase;
+      }
+      font: {
+        size:4em;
+        family: "Lilex";
+        weight: 600;
+      }
+      transform: scale(.5);
+      color: #121212;
+      @for $i from 1 through 7 {
+        $timer : $timer + .125;
+        &:nth-child(#{$i}){
+          animation: hoverLetter 1s linear infinite #{$timer}s; 
+        }
+      }
+    }
+  }
+}
+
+@keyframes hoverLetter {
+  0% {
+    transform: scale(.5);
+    color: #121212;
+  }
+  20% {
+    transform: scale(1);
+    color: pink;
+    filter: drop-shadow(0 0 1px black)drop-shadow(0 0 1px black)drop-shadow(0 0 3px red)drop-shadow(0 0 5px red)hue-rotate(10turn);
+  }
+  50% {
+    transform: scale(.5);
+    color: #121212;
+  }
+}
